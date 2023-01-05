@@ -1,3 +1,17 @@
+ca-certificates-java (20190909ubuntu1.1) jammy; urgency=medium
+
+  * debian/jks-keystore.hook: Support locating Java 18-21 to avoid java
+    not found message (LP: #1998065).
+
+ -- Vladimir Petko <vladimir.petko@canonical.com>  Fri, 06 Jan 2023 10:48:27 +1300
+
+ca-certificates-java (20190909ubuntu1) jammy; urgency=medium
+
+  * debian/postinst: Support locating Java 18-21. Use setup_path() from
+    20220719. (Closes LP: #1998065)
+
+ -- Vladimir Petko <vladimir.petko@canonical.com>  Fri, 09 Dec 2022 15:17:24 +0100
+
 ca-certificates-java (20190909) unstable; urgency=medium
 
   * Team upload.
