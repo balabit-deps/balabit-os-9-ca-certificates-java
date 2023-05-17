@@ -36,6 +36,13 @@ setup_path()
             if [ -x /usr/lib/jvm/$jvm/bin/java ]; then
                 export JAVA_HOME=/usr/lib/jvm/$jvm
                 PATH=$JAVA_HOME/bin:$PATH
+                # copy java.security to allow import to function
+                security_conf=/etc/java-${version}-openjdk/security
+                if [ -f ${security_conf}/java.security.dpkg-new ] \
+                   && [ ! -f ${security_conf}/java.security ]; then
+                        cp ${security_conf}/java.security.dpkg-new \
+                            ${security_conf}/java.security
+                fi
                 break 2
             fi
         done
