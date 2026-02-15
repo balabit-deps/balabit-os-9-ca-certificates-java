@@ -35,6 +35,13 @@ do
     echo "installing ${version}"
     apt-get install -y ${version} | tee ${output}
 # THEN installation is successfull
+    COUNT=$(dpkg -l | grep jre-headless | grep openjdk | wc -l)
+# AND only one version of jre-headless is installed
+    if [[ ${COUNT} -ne 1 ]]; then
+        echo "Multuple versions of jre-headless are installed !!!"
+        dpkg -l | grep jre-headless | grep openjdk
+        exit 255
+    fi
 # AND certificates are updated
     if [[ $(grep -L "Adding debian:Amazon_Root_CA_1.pem" ${output}) ]]; then
         echo "Certificates were not imported !!!"

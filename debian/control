@@ -14,7 +14,7 @@ Package: ca-certificates-java
 Architecture: all
 Multi-Arch: foreign
 Depends: ca-certificates (>= 20121114),
-         default-jre-headless | java8-runtime-headless,
+         default-jre-headless | java8-runtime-headless | java-runtime-headless (>=8),
          libnss3 (>= 3.12.10-2~),
          ${misc:Depends}
 # We need a versioned Depends due to multiarch changes (bug #635571).

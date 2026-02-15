@@ -1,3 +1,15 @@
+ca-certificates-java (20190909ubuntu1.3) jammy; urgency=medium
+
+  * d/control: ca-certificates-java should not install default-jre-headless
+    when openjdk-25-jre-headless is installed (LP: #2141785).
+    This change is relevant only for Ubuntu 22.04 - ca-certificates-java
+    no longer depend on Java runtime.
+    - d/{postinst,jks-keystore.hook}: add openjdk-25 to the supported versions,
+      add jvm configuration workaround.
+    - d/t/can-install-jre: check that only one jre is installed.
+
+ -- Vladimir Petko <vladimir.petko@canonical.com>  Mon, 16 Feb 2026 11:12:45 +1300
+
 ca-certificates-java (20190909ubuntu1.2) jammy-security; urgency=medium
 
   * REGRESSION UPDATE: ca-certificates-java can fail to install with
